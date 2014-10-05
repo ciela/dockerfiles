@@ -15,7 +15,7 @@ RUN ntpdate ntp.nict.jp
 
 # java
 RUN wget --no-check-certificate --no-cookies - --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u20-b26/jdk-8u20-linux-x64.rpm && \
-	rpm -ihv jdk-8u20-linux-x86.rpm
+	rpm -ihv jdk-8u20-linux-x64.rpm
 
 # Go
 RUN wget https://storage.googleapis.com/golang/go1.3.3.linux-amd64.tar.gz && \
