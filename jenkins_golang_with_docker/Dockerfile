@@ -23,7 +23,7 @@ RUN wget https://storage.googleapis.com/golang/go1.3.3.linux-amd64.tar.gz && \
 ENV GOROOT /usr/local/go
 RUN mkdir /gopath
 ENV GOPATH /gopath
-ENV PATH $PATH:/usr/local/go/bin
+ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
 RUN go get github.com/mattn/gom
 
 # jenkins
