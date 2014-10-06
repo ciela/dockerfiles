@@ -31,7 +31,7 @@ RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenki
 	rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key && \
 	yum -y install jenkins
 RUN unzip /usr/lib/jenkins/jenkins.war WEB-INF/jenkins-cli.jar
-RUN service jenkins start && sleep 20 && \
+RUN service jenkins start && sleep 60 && \
 	curl -L http://updates.jenkins-ci.org/update-center.json | sed '1d;$d' | curl -X POST -H 'Accept: application/json' -d @- http://localhost:8080/updateCenter/byId/default/postBack && \
 	java -jar WEB-INF/jenkins-cli.jar -s http://localhost:8080 install-plugin \
 	github docker-plugin golang awseb-deployment-plugin -restart
