@@ -19,8 +19,12 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
 
 # Go
 RUN wget https://storage.googleapis.com/golang/go1.3.3.linux-amd64.tar.gz && \
-	tar -C /usr/local -xzf go1.3.3.linux-amd64.tar.gz && \
-	export PATH=$PATH:/usr/local/go/bin
+	tar -C /usr/local -xzf go1.3.3.linux-amd64.tar.gz
+ENV GOROOT /usr/local/go
+RUN mkdir /gopath
+ENV GOPATH /gopath
+ENV PATH $PATH:/usr/local/go/bin
+RUN go get github.com/mattn/gom
 
 # jenkins
 RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo && \
