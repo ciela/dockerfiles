@@ -4,7 +4,7 @@ MAINTAINER ciela <zektbach@gmail.com>
 
 # yum
 RUN yum -y update && \
-	yum -y install initscripts wget tar ntp git docker zip unzip && \
+	yum -y install initscripts wget tar ntp git docker zip unzip mercurial bzr && \
 	yum -y clean all
 
 # Time Zone
